@@ -3,17 +3,18 @@ import logo from "./logo.svg";
 import { database } from "./firebase";
 import "./App.css";
 import "antd/dist/antd.css";
+import Main from "./components/Main";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = { data: null };
 
-    this.dataRef = null
+    this.dataRef = null;
   }
 
   componentDidMount() {
-    this.dataRef = database.ref('/users')
+    this.dataRef = database.ref("/users");
     this.dataRef.on("value", snapshot => {
       console.log("new dataa", snapshot.val());
     });
@@ -26,9 +27,7 @@ export default class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
+          <Main />
         </header>
 
         <div>
