@@ -12,7 +12,7 @@ export default class App extends Component {
   componentDidMount(){
     
     database.ref().on('value',(snapshot) => {
-      console.log("new data",snapshot)
+      console.log("new dataa",snapshot)
     })
   }
 
