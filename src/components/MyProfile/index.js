@@ -7,7 +7,7 @@ export default class MyProfile extends Component {
     this.state = {};
   }
   render() {
-    const { currentUser } = this.props;
+    // const { currentUser } = this.props;
     return (
       <MainLayout>
         <div>Children component</div>

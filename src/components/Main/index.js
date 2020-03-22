@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Avatar } from "antd";
 import NewRestaurants from "../NewRestaurants";
 import RestaurantsList from "../RestaurantList";
 
@@ -10,14 +9,14 @@ export default class Main extends Component {
   }
 
   render() {
-    const { restaurants } = this.props;
+    const { restaurants,currentUser } = this.props;
     
     return (
       <div>
         <h3>Restourents</h3>
         <div>
           <NewRestaurants />
-          <RestaurantsList restaurants={restaurants} />
+          <RestaurantsList restaurants={restaurants} currentUser={currentUser} />
         </div>
       </div>
     );

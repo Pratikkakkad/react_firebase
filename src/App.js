@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import { database } from "./firebase";
 import "./App.css";
 import "antd/dist/antd.css";
-import Main from "./components/Main";
-import HeaderMenu from "./components/Header";
 import MainLayout from "./components/Layout";
 
 export default class App extends Component {

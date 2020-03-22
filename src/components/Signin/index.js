@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Avatar, Popover } from "antd";
 import { auth, googleAuthProvider } from "../../firebase";
-import MyProfile from "../MyProfile";
+// import MyProfile from "../MyProfile";
 
 export default class Signin extends Component {
   constructor(props) {

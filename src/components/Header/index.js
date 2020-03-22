@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Menu, Button } from "antd";
+import { Menu } from "antd";
 import Signin from "../Signin";
-import { auth } from "../../firebase";
+// import { auth } from "../../firebase";
 
 export default class HeaderMenu extends Component {
   constructor(props) {
