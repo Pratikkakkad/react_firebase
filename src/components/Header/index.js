@@ -1,64 +1,66 @@
-import React, { Component } from 'react'
-import { Menu } from 'antd'
-
-
-const { SubMenu } = Menu;
-
-
+import React, { Component } from "react";
+import { Menu, Button } from "antd";
+import Signin from "../Signin";
+import { auth } from "../../firebase";
 
 export default class HeaderMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      current: "mail"
+    };
+  }
 
-    state = {
-        current: 'mail',
-      };
+  handleClick = e => {
+    console.log("click ", e);
+    this.setState({
+      current: e.key
+    });
+  };
 
-    handleClick = e => {
-        console.log('click ', e);
-        this.setState({
-          current: e.key,
-        });
-      };
-
-      
-    render() {
-        return (
-            <div>
-               
-      <div className="logo" />
-      <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
-        <Menu.Item key="mail">
-          
-          Navigation One
-        </Menu.Item>
-        <Menu.Item key="app" disabled>
-          
-          Navigation Two
-        </Menu.Item>
-        <SubMenu
-          title={
-            <span className="submenu-title-wrapper">
-              
-              Navigation Three - Submenu
-            </span>
-          }
+  render() {
+    const { currentUser } = this.props;
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between"
+        }}
+      >
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginRight: "32px",
+              color: "#fff"
+            }}
+          >
+            Firebase React
+          </div>
+          <Menu
+            onClick={this.handleClick}
+            selectedKeys={[this.state.current]}
+            mode="horizontal"
+            theme="dark"
+            style={{ lineHeight: "64px" }}
+          >
+            <Menu.Item key="mail">One</Menu.Item>
+            <Menu.Item key="app">Two</Menu.Item>
+            {currentUser && <Menu.Item key="profile">My Profile</Menu.Item>}
+          </Menu>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            margin: "0 16px",
+            color: "#fff"
+          }}
         >
-          <Menu.ItemGroup title="Item 1">
-            <Menu.Item key="setting:1">Option 1</Menu.Item>
-            <Menu.Item key="setting:2">Option 2</Menu.Item>
-          </Menu.ItemGroup>
-          <Menu.ItemGroup title="Item 2">
-            <Menu.Item key="setting:3">Option 3</Menu.Item>
-            <Menu.Item key="setting:4">Option 4</Menu.Item>
-          </Menu.ItemGroup>
-        </SubMenu>
-        <Menu.Item key="alipay">
-          <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-            Navigation Four - Link
-          </a>
-        </Menu.Item>
-      </Menu>
-    
-            </div>
-        )
-    }
+          <Signin currentUser={currentUser} />
+        </div>
+      </div>
+    );
+  }
 }

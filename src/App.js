@@ -5,6 +5,7 @@ import "./App.css";
 import "antd/dist/antd.css";
 import Main from "./components/Main";
 import HeaderMenu from "./components/Header";
+import MainLayout from "./components/Layout";
 
 export default class App extends Component {
   constructor(props) {
@@ -25,11 +26,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-            <HeaderMenu/>
-
-        <div>
-          <h3>Firebase data will come here...</h3>
-        </div>
+        <MainLayout />
       </div>
     );
   }
